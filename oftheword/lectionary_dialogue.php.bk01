@@ -1,0 +1,361 @@
+<?php class lectionary_dialogue {
+
+// The following variables are used to communicate
+// between prv_divide_readings() and it's subordinate
+// functions.
+protected $vr_hadcolon;
+protected $vr_curchapt;
+
+// Used by some function that may succeed or fail --
+// but can't use the return value for "true" or
+// "false" because that's needed for something else.
+protected $vr_so;
+
+// Used as main output-buffer of functions:
+protected $vr_buf = "";
+
+// Used for option control ----
+protected $vr_opt_buf = "";
+protected $vr_opt_nom;
+protected $vr_opt_mnu = 0; // Options Menu Number
+protected $vr_opt_num = 0; // Option Number (in menu)
+
+// Used to store the info on the currently-being-read book:
+protected $vr_info; // Basic book info
+protected $vr_sectos; // The array of sections in this reading.
+protected $vr_bookid;
+protected $vr_bookref;
+protected $vr_chaptid;
+
+protected function prv_reading_now ( ) {
+  $this->vr_buf .= "<p><font size = \"-1\"><b>(" . $this->vr_info["abrv"] . " " .
+      $this->vr_bookref . ")</b></font>\n";
+  ;
+  $chaian = "<br/>\n";
+  $this->vr_chaptid = "x";
+  foreach ( $this->vr_sectos as $secta )
+  {
+    //$this->vr_buf .= "----- " . $secta . "<br/><br/>\n";
+    $this->prv_read_it($this->vr_bookid,$secta,$chaian);
+    $chaian = "<br/><br/>\n";
+  }
+}
+
+protected function prv_read_it ( $rg_a, $rg_b, $rg_c ) {
+  
+  //echo "<br/>" . $rg_a . " - " . $rg_b . " - " . $rg_c . ":<br/>\n";
+  
+  $nparg = false;
+  list($cha,$vrsx) = explode(":",$rg_b);
+  list($vrs_a,$vrs_z) = explode("-",$vrsx);
+  $chb = ((int)($cha + 0.2));
+  $cha = $chb;
+  if ( $chb < 9.5 ) { $cha = "0" . $cha; }
+  if ( $chb < 99.5 ) { $cha = "0" . $cha; }
+  $scripdr = $GLOBALS["scriptura"];
+  $pickfile = $scripdr . "/" . $rg_a . "-" . $cha . ".scrp";
+  if ( !(file_exists($pickfile) ) )
+  {
+    echo "<br/><br/><h1>FILE MISSING FROM SCRIPTURE-RESOURCE:</h1>\n";
+    echo $pickfile . "<br/><br/>\n";
+    return;
+  }
+  $this->vr_buf .= $rg_c;
+  
+  $chpida = $chb . ":";
+  $chpidb = $chpida;
+  if ( $this->vr_chaptid == $chpida )
+  {
+    $chpidb = "";
+  }
+  $this->vr_chaptid = $chpida;
+  
+  $chapraw = file_get_contents($pickfile);
+  $chaplins = explode("\n",$chapraw);
+  
+  
+  // First round, we just find out what
+  // the first and last verse are.
+  foreach ( $chaplins as $chapline )
+  {
+    $drc = explode(":",$chapline,4);
+    if ( $drc[0] == "verses" )
+    {
+      if ( $vrs_a == "x" ) { $vrs_a = $drc[1]; }
+      if ( $vrs_z == "x" ) { $vrs_z = $drc[2]; }
+    }
+  }
+  
+  
+  $lastvrs = "x"; // First verse we show can't have a previous
+  $begany = false;
+  foreach ( $chaplins as $chapline )
+  {
+    $drc = explode(":",$chapline,4);
+    $oksa = true;
+    if ( $oksa ) { if ( $drc[0] != "v" ) { $oksa = false; } }
+    if ( $oksa ) { if ( $drc[1] < ( $vrs_a - 0.5 ) ) { $oksa = false; } }
+    if ( $oksa ) { if ( $drc[1] > ( $vrs_z + 0.5 ) ) { $oksa = false; } }
+    if ( $oksa )
+    {
+      if ( $drc[2] == "prg" )
+      {
+        if ( $begany ) { $this->vr_buf .= "\n<br/><br/>\n"; }
+        $begany = false;
+      }
+      if ( $drc[2] == "txt" )
+      {
+        if ( $lastvrs != $drc[1] )
+        {
+          $this->vr_buf .= "\n<font size = \"-2\">" . $chpidb . $drc[1] . "</font>\n";
+          $chpidb = "";
+          $lastvrs = $drc[1];
+        }
+        $this->vr_buf .= htmlspecialchars($drc[3]) . "\n";
+        $begany = true;
+      }
+    }
+  }
+  
+  
+  
+}
+
+
+
+public function opt_menu($rg_nom) {
+  $this->flushy();
+  $this->vr_opt_buf = "\n<br/><table border = \"1\" cellpadding = \"2\">";
+  $this->vr_opt_buf .= "<tr><td>\n";
+  $this->vr_opt_nom = $rg_nom;
+  $this->vr_opt_buf .= "Options for " . htmlspecialchars($rg_nom);
+  $this->vr_opt_mnu = ((int)($this->vr_opt_mnu + 1.2));
+  $this->vr_opt_num = 1;
+  $this->vr_opt_buf .= "<ul>\n";
+  $this->prv_enter_option
+      ($this->vr_opt_mnu,
+      $this->vr_opt_num,
+      $this->vr_opt_nom)
+  ;
+}
+
+public function opt_next() {
+  $this->vr_opt_num = ((int)($this->vr_opt_num + 1.2));
+  $this->prv_enter_option
+      ($this->vr_opt_mnu,
+      $this->vr_opt_num,
+      $this->vr_opt_nom)
+  ;
+}
+
+public function opt_done() {
+  $md = $GLOBALS["sn_mode_inf"];
+  
+  
+  $this->vr_opt_buf .= "</ul>\n</td></tr></table>\n<br/>\n";
+  
+  echo $this->vr_opt_buf;
+  $this->vr_opt_buf = "";
+  
+  $this->vr_buf .= "<p><font color = \"#" . $md["offred_color"] . "\" size = \"+1\">----\n";
+  $this->vr_buf .= "End of options for " . htmlspecialchars($this->vr_opt_nom);
+  $this->vr_buf .= "</font></p>\n";
+  
+  $this->flushy();
+}
+
+protected function prv_enter_option ( $rg_mnu, $rg_opt, $rg_nom ) {
+  $md = $GLOBALS["sn_mode_inf"];
+  $clac = "mnu" . $rg_mnu . "p" . $rg_opt;
+  $this->vr_opt_buf .= "<li><p>";
+  $this->vr_opt_buf .= "<a href = \"#" . $clac . "\">";
+  $this->vr_opt_buf .= "Option " . $rg_opt;
+  $this->vr_opt_buf .= "</a>";
+  $this->vr_opt_buf .= "</p></li>\n";
+  
+  $this->vr_buf .= "\n<a name = \"" . $clac . "\" />\n";
+  $this->vr_buf .= "<p><font color = \"#" . $md["offred_color"] . "\" size = \"+1\">----\n";
+  $this->vr_buf .= htmlspecialchars($rg_nom) . " Option " . $rg_opt;
+  $this->vr_buf .= "</font></p>\n";
+}
+
+
+public function ot_reading ( $rg_book, $rg_parts ) {
+  $this->prv_reading_pre ( $rg_book, $rg_parts );
+  if ( !($this->vr_so) ) { return; }
+  $this->vr_buf .= "\n<p>A reading from the " .
+    $this->vr_info["bigname"] . "</p>\n";
+  ;
+  
+  $this->prv_reading_now();
+  
+  $this->vr_buf .= 
+    "\n<p><i>(Here endeth the lesson.)</i></p>\n";
+}
+
+
+public function nt_reading ( $rg_book, $rg_parts ) {
+  $this->prv_reading_pre ( $rg_book, $rg_parts );
+  if ( !($this->vr_so) ) { return; }
+  $this->vr_buf .= "\n<p>A reading from the " .
+    $this->vr_info["bigname"] . "</p>\n";
+  ;
+  
+  $this->prv_reading_now();
+  
+  $this->vr_buf .= 
+    "\n<p><i>(Here endeth the lesson.)</i></p>\n";
+}
+
+
+public function gospel ( $rg_book, $rg_parts ) {
+  $this->prv_reading_pre ( $rg_book, $rg_parts );
+  if ( !($this->vr_so) ) { return; }
+  $this->vr_buf .= "\n<p>Stand for the reading of the " .
+    $this->vr_info["bigname"] . "</p>\n";
+  ;
+  
+  $this->prv_reading_now();
+  
+  $this->vr_buf .= 
+    "\n<p><i>(Here endeth the gospel reading.)</i></p>\n";
+}
+
+
+public function flushy ( ) {
+  echo $this->vr_buf;
+  $this->vr_buf = "";
+}
+
+public function aleluia ( ) {
+  $this->vr_buf .= "\n<p>Aleluia. Aleluia. Aleluia.</p>\n";
+  $this->vr_buf .= "\n<p><u>Aleluia. Aleluia. Aleluia.</u></p>\n";
+  $this->maychange("This is a temporary form of the Aleluia.");
+}
+
+protected function maychange ( $rg_why )
+{
+  $this->vr_buf .= "\n<p><font size = \"-2\"><i>(";
+  $this->vr_buf .= "This text is subject to possible";
+  $this->vr_buf .= " change because:\n";
+  $this->vr_buf .= htmlspecialchars($rg_why);
+  $this->vr_buf .= ")</i></font></p>\n";
+}
+
+
+
+protected function prv_reading_pre ( $rg_book, $rg_parts ) {
+  $slclist = $this->prv_divide_readings($rg_parts);
+  $infos = $this->loady($rg_book);
+  if ( !($this->vr_so) ) { return; }
+  $this->vr_info = $infos;
+  $this->vr_sectos = $slclist;
+  
+  $this->vr_bookid = $rg_book;
+  $this->vr_bookref = $rg_parts;
+  //foreach ($slclist as $kio)
+  //{
+  //  //echo "\n<br/>----\n" . $kio . "<br/>\n";
+  //}
+}
+
+protected function loady ( $rg_book )
+{
+  $scripdr = $GLOBALS["scriptura"];
+  $this->vr_so = true;
+  $pickfile = $scripdr . "/" . $rg_book . ".info";
+  if ( !(file_exists($pickfile) ) )
+  {
+    echo "<br/><br/><h1>FILE MISSING FROM SCRIPTURE-RESOURCE:</h1>\n";
+    echo $pickfile . "<br/><br/>\n";
+    $this->vr_so = false;
+    return;
+  }
+  $infcon = file_get_contents($pickfile);
+  $reta = array();
+  $rawy = explode("\n",$infcon);
+  foreach ( $rawy as $lina )
+  {
+    $neos = explode(":",$lina,2);
+    $nom = $neos[0];
+    $val = $neos[1];
+    if ( $nom != "" )
+    {
+      $reta[$nom] = $val;
+    }
+  }
+  
+  $targix = array("bigname","midname","abrv");
+  foreach ( $targix as $targon ) {
+    if ( $reta[$targon] == "" )
+    {
+      echo "<br/><br/><h1>SCRIPTURE-RESOURCE FILE MISSING INFO:</h1>\n";
+      echo "File: " . $pickfile . ":<br/>\n";
+      echo "Variable: " . $targon . ":<br/>\n";
+      echo "<br/>\n";
+      $this->vr_so = false;
+      return;
+    }
+  }
+  
+  return $reta;
+}
+
+protected function prv_divide_readings ( $rg_raw )
+{
+  $this->vr_hadcolon = false;
+  $reta = array();
+  $djonx = explode(", ",$rg_raw);
+  foreach ( $djonx as $djone )
+  {
+    list($bfor,$afta) = explode("-",$djone);
+    if ( $afta == "" ) { $afta = $bfor; }
+    list($pre_c,$pre_v) = $this->prv_chapverse($bfor);
+    list($pos_c,$pos_v) = $this->prv_chapverse($afta);
+    $cur_c = $pre_c;
+    $cur_v = $pre_v;
+    
+    if ( $cur_c == $pos_c )
+    {
+      $reta[] = $pre_c . ":" . $pre_v . "-" . $pos_v;
+      $cur_c = ((int)($cur_c + 1.2)); $cur_v = "x";
+    }
+    
+    while ( $cur_c < ( $pos_c - 0.5 ) )
+    {
+      $reta[] = $cur_c . ":" . $cur_v . "-x";
+      $cur_c = ((int)($cur_c + 1.2)); $cur_v = "x";
+    }
+    
+    if ( $cur_c == $pos_c )
+    {
+      $reta[] = $cur_c . ":" . $cur_v . "-" . $pos_v;
+      $cur_c = ((int)($cur_c + 1.2)); $cur_v = "x";
+    }
+    
+    
+    
+    //$reta[] = $pre_c . ":" . $pre_v . "-" . $pos_c . ":" . $pos_v;
+  }
+  return $reta;
+}
+
+protected function prv_chapverse ( $rg_raw )
+{
+  list($chap,$vrs) = explode(":",$rg_raw);
+  if ( $vrs == "" )
+  {
+    if ( $this->vr_hadcolon )
+    {
+      return array($this->vr_curchapt,$chap);
+    }
+    return array($chap,"x");
+  }
+  $this->vr_hadcolon = true;
+  $this->vr_curchapt = $chap;
+  return array($chap,$vrs);
+}
+
+
+
+} ?>
