@@ -14,6 +14,13 @@ sources that were used</a>.
 
 
 <p>
+For PHP source-code for this project, as well as other source-code files,
+please visit this project's page on GitHub:
+<a href = "https://github.com/opensourceliturgy" target = "_blank">https://github.com/opensourceliturgy</a>
+</p>
+
+
+<p>
 Thanks to Brother Andrew Blair for translating the
 Creed for this project.
 </p>

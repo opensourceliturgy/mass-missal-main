@@ -6,6 +6,7 @@ if ( $customize )
 {
   require $libdir . "/modes/mode-" . $cust_mode . ".php";
 }
+include_array_files($preffile);
 
 // So the lectionary won't bomb
 //require_once $liturgidir . "/lecture-func.php";
@@ -14,8 +15,10 @@ require_once $libdir . "/lectionary_dialogue.php";
 require_once $libdir . "/psalm_bridging.php";
 require_once $liturgidir . "/oftheword/customs.php";
 require_once $libdir . "/string_magic_res.php";
+require_once $libdir . '/deferred_output.php';
 $lct = new lectionary_dialogue;
 $strmagic = new string_magic_res;
+$credits = new deferred_output;
 //$lct->inform("main",new lectionary_custom,$sm,
 //new psalm_bridging,$strmagic);
 $lct->inform("main",array(
@@ -40,7 +43,7 @@ if ( !($customize) ) { $act_cust_caln = "test"; }
 ?><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" id="viewport" content="width=device-width,user-scalable=false;">
+<? include_array_files($headfile); ?>
 </head>
 <body
  bgcolor = "#<?php echo $sn_mode_inf["bgcolor"] ?>"
