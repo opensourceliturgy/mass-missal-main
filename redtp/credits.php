@@ -65,6 +65,6 @@ January 1, 1884
 <a name = "credits_more_info"/>
 <?php $sm->gt("Further Information"); ?>
 
-$sm->cite_form();
+<? $sm->cite_form(); ?>
 
 
