@@ -4,7 +4,10 @@
 
 <p>In the Name of the <? $sm->cross(); ?>Father, and of the Son, and of the Holy Spirit.</p>
 <p><u>Amen.</u></u>
-<!-- Sarum p. 293 -->
+<?php
+$sm->cite("Sarum p. 293");
+$sm->ct_link(array());
+?>
 
 
 <p>The Lord be with you.</p>
@@ -30,7 +33,10 @@ Mass.)</i></p>
 <p><u>Christ, have mercy upon us</u></p>
 <p>Lord, have mercy upon us</p>
 <p><u>Lord, have mercy upon us</u></p>
-<!-- Sarum p. 293 -->
+<?php
+$sm->cite("Sarum p. 293");
+$sm->ct_link(array());
+?>
 
 
 
@@ -82,12 +88,13 @@ art most high in the glory of God the Father.
 // HERE ENDETH THE GLORIA
 ?>
 
-<!-- Source of the Gloria is:
-http://ia700200.us.archive.org/1/items/a550137400unknuoft/a550137400unknuoft.pdf page 29
-
-Home-page of the document (in multiple formats is):
-http://archive.org/details/a550137400unknuoft
--->
+<?php
+$sm->lnk_cite("Source of the Gloria","http://archive.org/details/a550137400unknuoft");
+$sm->cite(" page 29");
+$sm->ct_link(array());
+//http://ia700200.us.archive.org/1/items/a550137400unknuoft/a550137400unknuoft.pdf
+//Home-page of the document (in multiple formats is):
+?>
 
 <?php
 $snt->set_var("part","collect");

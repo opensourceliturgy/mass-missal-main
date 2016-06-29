@@ -19,8 +19,7 @@ $lct->by_toc($locuta . "/main.lsr", true);
 
 
 <?php $sm->t("The Creed"); ?>
-<!-- The translation of the Creed used here was translated from the Greek
-by Brother Andrew - and then he and I, together, hammered out the final details. -->
+
 
 <p>Together, let us proclaim our faith.</p>
 
@@ -40,7 +39,11 @@ by Brother Andrew - and then he and I, together, hammered out the final details.
 <p><u>She has spoken through the prophets.</u></p>
 <p><u>And I believe in One holy Catholic and Apostolic Church, I confess one baptism for the forgiveness of sins, I look forward to the resurrection of the dead and the life in the world  to come.</u></p>
 <p><u>Amen!</u></p>
-
+<?php
+$sm->cite("The translation of the Creed used here was translated from the Greek");
+$sm->cite(" by Brother Andrew - and then he and I, together, hammered");
+$sm->cite(" out the final details.");
+$sm->ct_link(); ?>
 
 <?php $sm->xt(); ?>
 

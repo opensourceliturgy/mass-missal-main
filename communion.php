@@ -19,15 +19,22 @@ but deliver us from evil.</u></p>
 and the power, and the glory,
 for ever and ever.</u></p>
 
-<p><u>Amen.</u></p>
-<!-- This is from the traditional translation. -->
-
+<p><u>Amen.</u>
+<?php
+$sm->cite("Source: This is from the traditional translation.");
+$sm->cite(" The decision was made to use this translation despite it's inherent flaws");
+$sm->cite(" so as to avoid confusing visitors who are accustomed to the traditional translation.");
+$sm->ct_link(array());
+?></p>
 
 
 <p>The peace of the Lord be always with you.</p>
 
-<p><u>And with thy spirit.</u></p>
-<!-- Sarum p. 316 -->
+<p><u>And with thy spirit.</u>
+<?php
+$sm->cite("Source: Sarum p. 316");
+$sm->ct_link(array());
+?></p>
 
 <p>Let us share amongst each other a sign of peace.</p>
 
@@ -41,8 +48,11 @@ for ever and ever.</u></p>
 
 <p><u>O Lamb of God, that takest away the sins of the world, Have mercy upon us.</u></p>
 
-<p><u>O Lamb of God, that takest away the sins of the world, Grant us Thy peace.</u></p>
-<!-- Sarum p. 317 -->
+<p><u>O Lamb of God, that takest away the sins of the world, Grant us Thy peace.</u>
+<?php
+$sm->cite("Source: Sarum p. 317");
+$sm->ct_link(array());
+?></p>
 
 <? $sm->xt(); ?>
 

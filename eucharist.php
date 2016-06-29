@@ -25,8 +25,10 @@ and grant that the sacrifice which we offer
 this day in Thy sight may be pleasing to thee,
 O Lord God.
 </p>
-<!-- Tridentine for Laity - p. 34 -->
-
+<?php
+$sm->cite("Source: Tridentine for Laity - p. 34");
+$sm->ct_link(array());
+?>
 
 <p><u>Amen.</u></p>
 
@@ -39,7 +41,10 @@ O Lord God.
 <p><u>And with thy spirit.</u></p>
 
 <p>Lift up your hearts.</p>
-<!-- Sarum p. 300 -->
+<?php
+$sm->cite("Source: Sarum p. 300");
+$sm->ct_link(array());
+?>
 
 <p><u>We lift them up unto the Lord.</u></p>
 
@@ -54,12 +59,18 @@ O Lord Holy Father Almighty, everlasting God. Because
 by the mystery of the Incarnate Word, the new light of Thy
 Brightness shone upon the eyes of our mind, that, while weacknowledge Him to be God visibly, by Him we may be caught up unto the love of invisible things. And therefore with Angels and Archangels with thrones and dominions and with all the company of the Heavenly Host we magnify Thy glorious Name, evermore saying.
 </p>
-<!-- Sarum p. 301 -->
+<?php
+$sm->cite("Source: Sarum p. 301");
+$sm->ct_link(array());
+?>
 
 <p>
 <u>Holy, Holy, Holy, Lord God of Hosts -, heaven and earth are full of Thy glory. Hosanna in the highest. <? $sm->cross(); ?>Blessed is He that cometh in the Name of the Lord. Glory be to Thee, O Lord, in the highest.</u>
 </p>
-<!-- Sarum p. 308 -->
+<?php
+$sm->cite("Source: Sarum p. 308");
+$sm->ct_link(array());
+?>
 
 <p>Thee therefore, O most Merciful Father, through Jesus Christ Thy Son our Lord, we most humbly pray and entreat,
 to accept and bless,
@@ -68,18 +79,27 @@ which we offer to Thee in the first place in behalf of Thy Holy Catholic Church,
 $sm->instx("The patriarch we are under"); ?>, our Bishop <? $sm->instx("Name of our bishop"); ?> <?
 $sm->instx("More names come here."); ?> all the Orthodox and maintainers of the Catholic and Apostolic Faith.
 </p>
-<!-- Sarum p. 309 -->
+<?php
+$sm->cite("Source: Sarum p. 309");
+$sm->ct_link(array());
+?>
 
 <p>
 Remember, O Lord, Thy servants and handmaidens <? $sm->instx("More individuals are prayed for here"); ?> and all here present, whose faith is approved and whose devotion is known unto Thee ; in whose behalf we offer unto Thee, or who are engaged in offering unto Thee, this sacrifice of praise, for themselves and all pertaining to them, for the redemption of their souls, for the hope of their salvation and security ; and are paying their vows unto Thee, the eternal, living, and true God.
 </p>
-<!-- Sarum p. 309 -->
+<?php
+$sm->cite("Source: Sarum p. 309");
+$sm->ct_link(array());
+?>
 
 <p>
 In communion with and reverencing the memory, in the first place, of the glorious and ever- Virgin Mary,
 Mother of our God and Lord Jesus Christ; as also of Thy blessed Apostles and Martyrs, Peter and Paul, Andrew, James, John, Thomas, James, Philip, Bartholomew, Matthew, Simon and Thaddaeus, Linus, Cletus, Clement, Sixtus, Cornelius, Cyprian, Laurence, Chrysogonus, John and Paul, Cosmas and Damian, and all Thy Saints ; for whose sake and prayers grant that in all things we may be strengthened by the aid of Thy protection. Through the same Christ our Lord.</p><p><u>Amen.</u>
 </p>
-<!-- Sarum p. 310 -->
+<?php
+$sm->cite("Source: Sarum p. 310");
+$sm->ct_link(array());
+?>
 
 <p>
 Mother of our God and Lord Jesus Christ; as also of Thy blessed Apostles and Martyrs, Peter and Paul, Andrew, James, John, Thomas, James, Philip, Bartholomew, Matthew, Simon and Thaddaeus, Linus, Cletus, Clement, Sixtus, Cornelius, Cyprian, Laurence, Chrysogonus, John and Paul, Cosmas and Damian, and all Thy Saints ; for whose sake and prayers grant that in all things we may be strengthened by the aid of Thy protection. Through the same Christ our Lord.</p><p><u>Amen.</u>
@@ -106,13 +126,14 @@ gave thanks to Thee, blessed, brake, and gave it to His disciples, saying -
 
 <? $sm->coreword("Take this all and eat. This is my body which
 will be given up for you."); ?>
-<!-- http://www.latinliturgy.com/id18.htm
-gave the Latin ...
-
-ACCÌPITE ET MANDUCATE EX HOC OMNES:
-HOC EST ENIM CORPUS MEUM
-QUOD PRO VOBIS TRADÈTUR.
--->
+<?php
+$sm->lnk_cite("Source in Latin","http://www.latinliturgy.com/id18.htm");
+$sm->ct_line(2);
+$sm->cite("ACCÌPITE ET MANDUCATE EX HOC OMNES:");
+$sm->nl_cite("HOC EST ENIM CORPUS MEUM");
+$sm->nl_cite("QUOD PRO VOBIS TRADÈTUR.");
+$sm->ct_link(array());
+?>
 
 <? $sm->insparg("After placing the sacred Body of Christ on the patton, the celebrant kneels before the altar."); ?>
 
@@ -127,33 +148,39 @@ is the chalice of my blood - the blood of the New and
 Eternal Testament which will be poured out
 for you and for many for the remission of sins.
 Do this in my memory."); ?>
-
-<!-- http://www.latinliturgy.com/id18.htm
-gave the Latin ...
-
-ACCÌPITE ET BIBITE
-EX EO OMNES:
-HIC EST ENIM CALIX SANGUINES MEI
-NOVI ET AETERNI TESTAMENTI,
-QUI PRO VOBIS
-ET PRO MULTIS EFFUNDETUR 
-IN REMISSIONEM PECCATORUM.
-HOC FÀCITE
-IN MEAN COMMEMORATIONEM.
--->
+<?php
+$sm->lnk_cite("Source in Latin","http://www.latinliturgy.com/id18.htm");
+$sm->ct_line(2);
+$sm->cite("ACCÌPITE ET BIBITE");
+$sm->nl_cite("EX EO OMNES:");
+$sm->nl_cite("HIC EST ENIM CALIX SANGUINES MEI");
+$sm->nl_cite("NOVI ET AETERNI TESTAMENTI,");
+$sm->nl_cite("QUI PRO VOBIS");
+$sm->nl_cite("ET PRO MULTIS EFFUNDETUR ");
+$sm->nl_cite("IN REMISSIONEM PECCATORUM.");
+$sm->nl_cite("HOC FÀCITE");
+$sm->nl_cite("IN MEAN COMMEMORATIONEM.");
+$sm->ct_link(array());
+?>
 
 <? $sm->insparg("After placing the Chalice back on the altar, the celebrant
 kneels before the altar."); ?>
 
-<p>And thus together we proclaim -</p>
-<!-- This last snippet of a sentence I added as a prompter -->
+<p>And thus together we proclaim -
+<?php
+$sm->cite("This last snippet of a sentence I added as a prompter");
+$sm->ct_link(array());
+?></p>
 
  
 <p><u>
 For as often as we eat this bread, and drink the cup, we proclaim the Lord’s death till he come.
 </u></p>
-<!-- Taken from 1895 Revised Version 1 Cor 11:26 -
-changed from second-person to first-person form. -->
+<?php
+$sm->cite("Taken from 1895 Revised Version 1 Cor 11:26 -");
+$sm->cite(" changed from second-person to first-person form.");
+$sm->ct_link(array());
+?>
 
 
 <p>
@@ -174,7 +201,10 @@ through the same Christ our Lord
 </p>
 
 <p><u>Amen.</u></p>
-<!-- Sarum - up to p. 312 -->
+<?php
+$sm->cite("Sarum - up to p. 312");
+$sm->ct_link(array());
+?>
 
 <? $sm->t("Prayer for the Dead"); ?>
 <p>Remember also, O Lord, the souls of Thy servants and handmaidens, <? $sm->instx("Say their names"); ?> , who have gone before us with the sign of the faith, and sleep the sleep of peace ; to them, O Lord, and to all who rest in Christ, we pray Thee, grant a place of refreshment, of light, and of peace. Through the same Christ our Lord.</p><p><u>Amen.</u></p>

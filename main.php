@@ -44,6 +44,7 @@ if ( !($customize) ) { $act_cust_caln = "test"; }
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <? include_array_files($headfile); ?>
+<?php require_once(realpath($libdir . '/js/stdjs.php')); ?>
 </head>
 <body
  bgcolor = "#<?php echo $sn_mode_inf["bgcolor"] ?>"

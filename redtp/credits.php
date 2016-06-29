@@ -65,11 +65,6 @@ January 1, 1884
 <a name = "credits_more_info"/>
 <?php $sm->gt("Further Information"); ?>
 
-<p>
-In this HTML rendering, some of the specific citations of
-particular segments of text are in the form of HTML
-comments that are only visible if you look at the
-HTML source.
-</p>
+$sm->cite_form();
 
 
