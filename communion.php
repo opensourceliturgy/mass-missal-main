@@ -48,18 +48,42 @@ $sm->ct_link(array());
 
 <p><u>O Lamb of God, that takest away the sins of the world, Have mercy upon us.</u></p>
 
-<p><u>O Lamb of God, that takest away the sins of the world, Grant us Thy peace.</u>
+<p><u>O Lamb of God, that takest away the sins of the world, Grant us Thy peace.</u></p>
 <?php
 $sm->cite("Source: Sarum p. 317");
 $sm->ct_link(array());
-?></p>
+?>
 
-<? $sm->xt(); ?>
+<?php $sm->t("Presenting the Lamb of God"); ?>
+
+<p>
+Behold, the Lamb of God, which taketh away the sin of the world!
+<?php $sm->cite("Taken from John 1:29"); $sm->ct_link(array()); ?>
+Blessed are they which are bidden to the marriage supper of the Lamb.
+<?php $sm->cite("Taken from Revalation 19:9"); $sm->ct_link(array()); ?>
+</p>
+
+<p><u>
+Lord, I am not worthy that thou shouldest come under my roof: but only say the word, and my soul shall be healed.
+<?php
+$sm->cite("Taken from Revalation 19:9");
+$sm->nl_cite("The word \"servant\" is here replaced with the word \"soul\".");
+$sm->ct_link(array());
+?>
+</u></p>
+
+<?php $sm->t("Receiving of Communion"); ?>
+
+<?php $sm->insparg("After the celebrant and those at the altar receive communion, the rest of the congregation is invited with the following words."); ?>
+
+<p>
+O taste and see that the LORD is good.
+<?php
+$sm->cite("Taken from Psalm 34:8");
+$sm->ct_link(array());
+?>
+</p>
 
 
-
-<p><i>
-(More content will be added here later.)
-</i></p>
 
 

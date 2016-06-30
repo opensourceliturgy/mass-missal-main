@@ -43,7 +43,7 @@ $lct->by_toc($locuta . "/main.lsr", true);
 $sm->cite("The translation of the Creed used here was translated from the Greek");
 $sm->cite(" by Brother Andrew - and then he and I, together, hammered");
 $sm->cite(" out the final details.");
-$sm->ct_link(); ?>
+$sm->ct_link(array()); ?>
 
 <?php $sm->xt(); ?>
 
