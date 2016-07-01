@@ -16,6 +16,7 @@ require_once $libdir . "/psalm_bridging.php";
 require_once $liturgidir . "/oftheword/customs.php";
 require_once $libdir . "/string_magic_res.php";
 require_once $libdir . '/deferred_output.php';
+require_once $libdir . '/language_tool.php';
 $lct = new lectionary_dialogue;
 $strmagic = new string_magic_res;
 $credits = new deferred_output;
@@ -24,6 +25,9 @@ $credits = new deferred_output;
 $lct->inform("main",array(
   array("theme",$sm)
 ));
+
+$lngu = new language_tool;
+$lngu->init($langpath,$langpack);
 
 
 
