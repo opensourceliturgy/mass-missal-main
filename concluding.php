@@ -18,8 +18,13 @@ Through the same Christ, Our Lord.
 
 <p><u>Amen.</u></p>
 
+<?php $lngu->lrs_on(); ?>
 <p><i>
 (More content will be added here later.)
 </i></p>
+<?php
+$lngu->lrs_off();
+$lngu->part("dismissal-text");
+?>
 
 
