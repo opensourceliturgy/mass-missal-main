@@ -57,6 +57,7 @@ if ( !($customize) ) { $act_cust_caln = "test"; }
  vlink = "#<?php echo $sn_mode_inf["vlinkcolor"] ?>"
  alink = "#<?php echo $sn_mode_inf["alinkcolor"] ?>"
 >
+<div class = "pageframe">
 
 
 
@@ -79,5 +80,6 @@ if ( $customize )
 
 <?php require $liturgidir . "/redtp/credits.php"; ?>
 
+</div>
 </body>
 </html>
