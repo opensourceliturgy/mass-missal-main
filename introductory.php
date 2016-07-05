@@ -2,17 +2,13 @@
 
 <h2>Introductory Rites</h2>
 
-<p>In the Name of the <? $sm->cross(); ?>Father, and of the Son, and of the Holy Spirit.</p>
-<p><u>Amen.</u></u>
+
 <?php
-$sm->cite("Sarum p. 293");
-$sm->ct_link(array());
+$lngu->part("sign-of-the-cross");
+$lngu->part("lord-be-with-you");
 ?>
 
 
-<p>The Lord be with you.</p>
-
-<p><u>And with thy spirit.</u></p>
 
 
 
@@ -23,7 +19,9 @@ or something that can be PHP-customized for each individual
 Mass.)</i></p>
 -->
 
-<p><i>(The Penitential Act will come here.)</i></p>
+<?php if ( $lngu->part("penitential-act") ) { ?>
+<p class = "placehold">The Penitential Act will come here.</p>
+<?php } ?>
 
 <?php $sm->gt("Kyrie"); ?>
 

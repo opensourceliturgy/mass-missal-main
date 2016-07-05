@@ -50,13 +50,7 @@ if ( !($customize) ) { $act_cust_caln = "test"; }
 <? include_array_files($headfile); ?>
 <?php require_once(realpath($libdir . '/js/stdjs.php')); ?>
 </head>
-<body
- bgcolor = "#<?php echo $sn_mode_inf["bgcolor"] ?>"
- text = "#<?php echo $sn_mode_inf["textcolor"] ?>"
- link = "#<?php echo $sn_mode_inf["linkcolor"] ?>"
- vlink = "#<?php echo $sn_mode_inf["vlinkcolor"] ?>"
- alink = "#<?php echo $sn_mode_inf["alinkcolor"] ?>"
->
+<body>
 <div class = "pageframe">
 
 

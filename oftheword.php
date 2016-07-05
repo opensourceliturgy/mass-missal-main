@@ -1,21 +1,11 @@
-
 <?php $sm->parthead("Liturgy of the Word"); ?>
 
-<?php
 
 
-if ( $customize ) { $lct->set_var("lectpage", $cust_lect); }
-else { $lct->set_var("lectpage","generic-missal"); }
-$lct->set_var("scriptres", $scriptura);
-$lct->set_var("psalms", $psalmsres);
-$lct->by_toc($locuta . "/main.lsr", true);
+<?php if ( !$customize ) { require(realpath(__DIR__ . '/sample-of-word-a.php')); } ?>
 
-?>
-
-<p><i>(This is where the homily will come if there is one to deliver.)</i></p>
-
-
-<?php $lct->may_floor(0); $lct->flushy(); ?>
+<p class = "instruction">This is where the homily will come if there is one to deliver.</p>
+<p class = "instruction">At this point, the Preacher cedes the floor to the Celebrant.</p>
 
 <?php $lngu->part("pray-nicene-creed"); ?>
 
