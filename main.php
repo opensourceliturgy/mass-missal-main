@@ -28,6 +28,8 @@ $lct->inform("main",array(
 
 $lngu = new language_tool;
 $lngu->init($langpath,$langpack);
+$ttlng = new language_tool;
+$ttlng->init($langpath,$langpack);
 
 
 

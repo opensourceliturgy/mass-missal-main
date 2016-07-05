@@ -1,5 +1,5 @@
 
-<h2>Concluding Rites</h2>
+<p class = "section_label" dir = "ltr">Concluding Rites</p>
 
 <p>
 <?php

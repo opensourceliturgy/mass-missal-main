@@ -1,5 +1,5 @@
 
-<h2>Liturgy of the Eucharist</h2>
+<p class = "section_label" dir = "ltr">Liturgy of the Eucharist</p>
 
 <? $sm->gt("Offertory"); ?>
 

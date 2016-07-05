@@ -1,5 +1,5 @@
 
-<h2>Communion Rite</h2>
+<p class = "section_label" dir = "ltr">Communion Rite</p>
 
 <p>Let us pray in the words that Our Lord taught us.</p>
 

@@ -1,4 +1,5 @@
-<?php $sm->parthead("Liturgy of the Word"); ?>
+<p class = "section_label" dir = "ltr">Liturgy of the Word</p>
+<!-- $sm->parthead("Liturgy of the Word"); -->
 
 
 
@@ -7,15 +8,18 @@
 <p class = "instruction">This is where the homily will come if there is one to deliver.</p>
 <p class = "instruction">At this point, the Preacher cedes the floor to the Celebrant.</p>
 
-<?php $lngu->part("pray-nicene-creed"); ?>
-
-
-<?php $sm->xt(); ?>
-
-
 
 <?php
-$sm->t("Prayers of the Faithful");
+if ( $ttlng->part("title/the-creed") ) { ?>
+<p class = "prayer_label" dir = "ltr">The Creed</p>
+<?php }
+$lngu->part("pray-nicene-creed");
+
+
+
+if ( $ttlng->part("title/of-the-faithful") ) { ?>
+<p class = "prayer_label" dir = "ltr">Prayers of the Faithful</p>
+<?php }
 
 $sm->insparg("All specific prayers of the faithful are gone through at
 this point -- beginning with those that have been prepared in advance
