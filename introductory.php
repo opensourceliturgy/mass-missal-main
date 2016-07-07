@@ -1,6 +1,6 @@
 
 
-<p class = "section_label" dir = "ltr">Introductory Rites</p>
+<div class = "section_lblf"><div class = "section_label" dir = "ltr">Introductory Rites</div></div>
 
 
 <?php

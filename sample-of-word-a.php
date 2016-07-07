@@ -1,7 +1,7 @@
 
-<p class = "lect_label">First Reading</p>
-<p class = "lect_label">Psalm</p>
-<p class = "lect_label">Second Reading</p>
-<p class = "lect_label">Aleluia</p>
-<p class = "lect_label">Gospel</p>
+<div class = "lect_lblf"><div class = "lect_label">First Reading</div></div>
+<div class = "lect_lblf"><div class = "lect_label">Psalm</div></div>
+<div class = "lect_lblf"><div class = "lect_label">Second Reading</div></div>
+<div class = "lect_lblf"><div class = "lect_label">Aleluia</div></div>
+<div class = "lect_lblf"><div class = "lect_label">Gospel</div></div>
 

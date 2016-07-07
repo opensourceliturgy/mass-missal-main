@@ -2,10 +2,10 @@
 
 require_once $libdir . "/debug.php";
 require $libdir . "/modes/default.php";
-if ( $customize )
-{
-  require $libdir . "/modes/mode-" . $cust_mode . ".php";
-}
+//if ( $customize )
+//{
+//  require $libdir . "/modes/mode-" . $cust_mode . ".php";
+//}
 include_array_files($preffile);
 
 // So the lectionary won't bomb
@@ -30,6 +30,34 @@ $lngu = new language_tool;
 $lngu->init($langpath,$langpack);
 $ttlng = new language_tool;
 $ttlng->init($langpath,$langpack);
+$ttlng->set_framing(array(
+  'class_list' => array (
+    array ( // 1st in Sequence
+      'pray_css' => 'prayer_label',
+      'pray_elm' => 'div',
+      'sect_css' => 'section_label',
+      'sect_elm' => 'div',
+      'pray_pre' => '',
+      'sect_pre' => '',
+    ),
+    array ( // 1st in Sequence
+      'pray_css' => 'prayer_alt_label',
+      'pray_elm' => 'span',
+      'sect_css' => 'section_label',
+      'sect_elm' => 'span',
+      'pray_pre' => '',
+      'sect_pre' => '',
+    ),
+    array ( // 1st in Sequence
+      'pray_css' => 'prayer_alt_label',
+      'pray_elm' => 'span',
+      'sect_css' => 'section_label',
+      'sect_elm' => 'span',
+      'pray_pre' => "\n--\n",
+      'sect_pre' => "\n--\n",
+    ),
+  ),
+));
 
 
 

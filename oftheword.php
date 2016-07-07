@@ -1,4 +1,4 @@
-<p class = "section_label" dir = "ltr">Liturgy of the Word</p>
+<div class = "section_lblf"><div class = "section_label" dir = "ltr">Liturgy of the Word</div></div>
 <!-- $sm->parthead("Liturgy of the Word"); -->
 
 
@@ -11,14 +11,14 @@
 
 <?php
 if ( $ttlng->part("title/the-creed") ) { ?>
-<p class = "prayer_label" dir = "ltr">The Creed</p>
+<div class = "prayer_lblf" dir = "ltr"><div class = "prayer_label" dir = "ltr">The Creed</div></div>
 <?php }
 $lngu->part("pray-nicene-creed");
 
 
 
 if ( $ttlng->part("title/of-the-faithful") ) { ?>
-<p class = "prayer_label" dir = "ltr">Prayers of the Faithful</p>
+<div class = "prayer_lblf" dir = "ltr"><div class = "prayer_label" dir = "ltr">Prayers of the Faithful</div></div>
 <?php }
 
 $sm->insparg("All specific prayers of the faithful are gone through at

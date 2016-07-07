@@ -1,27 +1,16 @@
 
-<p class = "section_label" dir = "ltr">Concluding Rites</p>
+<div class = "section_lblf"><div class = "section_label" dir = "ltr">Concluding Rites</div></div>
 
-<p>
-<?php
-$snt->set_var("part","postcmn");
-$snt->patient();
-$sfar = $snt->by_toc($canonical . "/main.lsr",$act_cust_caln,true,true);
-$snt->urgent();
-if ( !($sfar) )
-{
-  $sfar = $snt->by_toc($canonical . "/main.lsr","unassigned",true,true);
-}
-echo "\n";
-?>
+<div class = "instruction" dir = "ltr">The celebrant offers a brief prayer for after communion ending with the following words ...</div>
+
+<div class = "leader" dir = "ltr">
 Through the same Christ, Our Lord.
-</p>
+</div>
 
-<p><u>Amen.</u></p>
+<div class = "congr" dir = "ltr">Amen.</div>
 
 <?php if ( $lngu->part("dismissal-text") ) { ?>
-<p><i>
-(More content will be added here later.)
-</i></p>
+<div class = "placehold" dir = "ltr">More content will be added here later.</div>
 <? } ?>
 
 

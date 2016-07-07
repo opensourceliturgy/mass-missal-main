@@ -1,5 +1,5 @@
 
-<p class = "section_label" dir = "ltr">Liturgy of the Eucharist</p>
+<div class = "section_lblf"><div class = "section_label" dir = "ltr">Liturgy of the Eucharist</div></div>
 
 <? $sm->gt("Offertory"); ?>
 
@@ -123,9 +123,8 @@ gave thanks to Thee, blessed, brake, and gave it to His disciples, saying -
 </p>
 
 
-
-<? $sm->coreword("Take this all and eat. This is my body which
-will be given up for you."); ?>
+<div class = "corewords">Take this all and eat. This is my body which
+will be given up for you.</div>
 <?php
 $sm->lnk_cite("Source in Latin","http://www.latinliturgy.com/id18.htm");
 $sm->ct_line(2);
@@ -143,11 +142,11 @@ to Thee, He blessed and gave it to His disciples, saying -
 </p>
 
 
-<? $sm->coreword("Take this all and drink - for here
+<div class = "corewords">Take this all and drink - for here
 is the chalice of my blood - the blood of the New and
 Eternal Testament which will be poured out
 for you and for many for the remission of sins.
-Do this in my memory."); ?>
+Do this in my memory.</div>
 <?php
 $sm->lnk_cite("Source in Latin","http://www.latinliturgy.com/id18.htm");
 $sm->ct_line(2);
