@@ -19,6 +19,8 @@ or something that can be PHP-customized for each individual
 Mass.)</i></p>
 -->
 
+<div class = "prayer_lblf" dir = "ltr"><div class = "prayer_label" dir = "ltr">Penitential Act</div></div>
+
 <?php if ( $lngu->part("penitential-act") ) { ?>
 <p class = "placehold">The Penitential Act will come here.</p>
 <?php } ?>
