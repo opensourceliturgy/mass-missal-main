@@ -1,36 +1,42 @@
 
 <div class = "section_lblf"><div class = "section_label" dir = "ltr">Liturgy of the Eucharist</div></div>
 
-<? $sm->gt("Offertory"); ?>
+<div class = "prayer_lblf" dir = "ltr"><div class = "prayer_label" dir = "ltr">Offertory</div></div>
 
-<? $sm->insparg("The celebrant, if trained to do so, says the blessing over the bread in Hebrew before the vernacular."); ?>
+<div class = "instruction">The celebrant, if trained to do so, says the blessing over the bread in Hebrew before the vernacular.</div>
 
-<p>Blessed art Thou, My Lord, Our God, King of the Universe - who brings forth bread from the Earth.</p>
+<div class = "leader">Blessed art Thou, My Lord, Our God, King of the Universe - who brings forth bread from the Earth.</div>
 
-<p><u>Amen.</u></p>
+<div class = "congr">Amen.</div>
 
 <?
 // $sm->note("It is specifically mentioned that wine is used here. However, it is not any more specific than that. It may be the kind of wine thought of at default by the word \"wine\", which is fermented and still contains alcohol. But it may also be the kind of wine that has had the alcohol evaporated from it - or even the kind of wine that never was fermented to begin with (also known as \"grape juice\" - but we still call it \"wine\", because we maintain that it <i>is</i> wine, just the unfirmented kind). Bearing this in mind, do not assume that the wine used here is of any specific kind unless you have specifically been told that it is so."); ?>
 
-<? $sm->insparg("The celebrant, if trained to do so, says the blessing over the cup in Hebrew before the vernacular."); ?>
+<div class = "instruction">The celebrant quietly says the following words - and while doing so, upon reaching the <span class = "smb_act01" /> sign begins the process of pouring a small amount of water, in three pours, into the Chalice.</div>
 
-<p>Blessed art Thou, My Lord, Our God, King of the Universe - who creates the Fruit of the Vine.</p>
+<?php if ( $lngu->part("divinity-humanity-water-wine") ) { ?>
+<div class = "placehold">Still in search of a version of these words that can be included into this Open Source missal.</div>
+<?php } ?>
 
-<p><u>Amen.</u></p>
+<div class = "instruction">The celebrant, if trained to do so, says the blessing over the cup in Hebrew before the vernacular.</div>
 
-<p>
+<div class = "leader">Blessed art Thou, My Lord, Our God, King of the Universe - who creates the Fruit of the Vine.</div>
+
+<div class = "congr">Amen.</div>
+
+<div class = "leader">
 Accept us, O Lord, in the spirit of humility
 and contrition of heart,
 and grant that the sacrifice which we offer
 this day in Thy sight may be pleasing to thee,
 O Lord God.
-</p>
+</div>
 <?php
 $sm->cite("Source: Tridentine for Laity - p. 34");
 $sm->ct_link(array());
 ?>
 
-<p><u>Amen.</u></p>
+<div class = "congr">Amen.</div>
 
 
 
