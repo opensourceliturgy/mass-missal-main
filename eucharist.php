@@ -40,11 +40,11 @@ $sm->ct_link(array());
 
 
 
-<? $sm->gt("Eucharistic Prayer"); ?>
+<div class = "prayer_lblf" dir = "ltr"><div class = "prayer_label" dir = "ltr">Eucharistic Prayer</div></div>
 
-<p>The Lord be with you.</p>
-
-<p><u>And with thy spirit.</u></p>
+<?php
+$lngu->part("lord-be-with-you");
+?>
 
 <p>Lift up your hearts.</p>
 <?php
